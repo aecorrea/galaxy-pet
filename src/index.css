@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+
 @keyframes heartbeat {
   from {
     transform: scale(1);
@@ -21,29 +24,41 @@
     animation-timing-function: ease-out;
   }
 }
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
-@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+  /* background-color: #1d5b79; */
 }
 
 #root {
   display: flex;
+  /* grid:
+    "header header header" auto
+    "leftSide body rightSide" 1fr
+    "footer footer footer" auto
+    / auto 1fr auto;
+  gap: 8px; */
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
   width: 100%;
 }
 
 #navbar {
+  z-index: 3;
+  position: sticky;
+  top: 0; 
   font-family: "Pangolin", cursive;
+  /* grid-area: header; */
   display: flex;
   width: 100% !important;
   align-items: center;
-  justify-content: center;
-  background-color: #1d5b79;
+  justify-content:space-between;
+  background-color: white;
   border-bottom: #468b97 solid 1px;
+  opacity: 0.97;
+
 }
 
 .navbar-ul {
@@ -51,13 +66,13 @@
   text-align: center;
   text-transform: uppercase;
   font-weight: 500;
-
   height: 50px;
+  max-width: fit-content;
 }
 
 .navbar-ul * {
   box-sizing: border-box;
-  -webkit-transition: all 0.35s ease;
+  /* -webkit-transition: all 0.35s ease; */
   transition: all 0.35s ease;
   display: flex;
   justify-content: center;
@@ -71,7 +86,7 @@
 }
 .navbar-ul a {
   padding: 0.3em 0;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(30, 78, 209, 0.5);
   position: relative;
   display: inline-block;
   letter-spacing: 1px;
@@ -81,34 +96,34 @@
 .navbar-ul a:before,
 .navbar-ul a:after {
   position: absolute;
-  -webkit-transition: all 0.35s ease;
+  /* -webkit-transition: all 0.35s ease; */
   transition: all 0.35s ease;
 }
-.navbar-ul a:before {
+.navbar-ul a:before  {
   top: 100%;
   display: block;
   height: 3px;
   width: 100%;
   content: "";
-  background-color: #c0392b;
+  /* background-color: #c0392b; */
 }
-.navbar-ul a:after {
+.navbar-ul a:after  {
   padding: 0.3em 0;
   position: absolute;
   top: 100%;
   left: 0;
   content: attr(data-hover);
-  color: white;
+  color: rgba(0, 21, 80);
   white-space: nowrap;
 }
 .navbar-ul li:hover a,
-.navbar-ul .current a {
+.navbar-ul .current a  {
   transform: translateY(-100%);
 }
 
-body {
-  background: #1d5b79;
-}
+/* body {
+  background-color: #1d5b79;
+} */
 
 .cart {
   display: flex;
@@ -141,16 +156,59 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-weight: 500;
-  color: white;
-  border: #468b97 solid 3px;
-  padding: 8px 14px 8px;
+  color: rgba(0, 21, 80);
+  border: #468b97 solid 1px;
+  padding: 1px 13px 8px 12px;
   border-radius: 10% 30% 50% 70%;
 }
 
 .itemListContainer {
   color: #f39000;
   font-family: "Pangolin", cursive;
-  padding: 250px;
+  width: 100%;
+  padding: 20px;
+  /* background-color: #1d5b79; */
+  display: grid;
+  padding-left: 100px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+.counter-div {
+  padding: 0 30px 0 30px;
+display: flex;
+flex-direction:row;
+justify-content: center;
+align-self: center;
+align-items: center;
+border:#468b97 solid 2px;
+border-radius: 8px;
+width: 25%;
+color: black;
+margin: 0 15px 0 0;
+}
+
+.counter-button {
   display: flex;
-  justify-content: center;
+  border:#1d5b79 solid 1px;
+  border-radius:  5px;
+  /* background-color: #1d5b79; */
+  padding: 2px 10px 2px 10px;
+  margin: 4px 10px 4px 10px;
+  font-family: "Pangolin", cursive;
+}
+
+.counter-button:hover {
+background-color: #F1FAFF;
+}
+#chakraButtonCart {
+  border:#468b97 solid 2px;
+  border-radius: 8px;
+}
+
+#detailImg {
+  width: 50%;
+  height: 50%;
 }
