@@ -3,7 +3,8 @@
 ###
 <h2>Funcionalidad</h2>
 <p align="left">Funcionalidades del carrito de compras y navegación </p>
-![galaxy-pet](https://github.com/aecorrea/galaxy-pet/assets/91922779/f2420d20-1023-4c73-8d8b-7511764773a3)
+
+![galaxy-pet](galaxy-pet.gif)
 
 ###
 
