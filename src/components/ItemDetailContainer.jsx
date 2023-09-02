@@ -1,26 +1,25 @@
 import React from "react";
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-
   const [data, setData] = useState([]);
-  useEffect(() => {
-    fetchedData();
-  }, []);
+  console.log(data);
 
-  const fetchedData = async () => {
-    const response = await fetch("https://fakestoreapi.com/products");
-    console.log(response);
-    const jsonData = await response.json();
-    console.log(jsonData);
-    setData(jsonData);
-  };
+  useEffect(() => {
+    const db = getFirestore();
+
+    const itemsCollection = collection(db, "pet-products");
+    getDocs(itemsCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => doc.data());
+      setData(docs);
+    });
+  }, []);
 
   return (
     <>
-      <ItemDetail data={data}
-       />
+      <ItemDetail data={data} />
     </>
   );
 };

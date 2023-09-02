@@ -1,40 +1,36 @@
-import React, { useEffect, useState }  from 'react'
-import Counter from './Counter'
-import Cards from './Item'
-import ItemList from './ItemList';
-import { useParams } from 'react-router-dom';
-
-
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ItemListContainer = () => {
-
-  const {category} = useParams();
-  
-
+  const { category } = useParams();
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-useEffect(() => {
-  fetchedData();
-},[])
 
+  useEffect(() => {
+    setLoading(true);
+    const db = getFirestore();
+    if (data.length === 0) {
+      const itemsCollection = collection(db, "pet-products");
+      getDocs(itemsCollection).then((snapshot) => {
+        const docs = snapshot.docs.map((doc) => doc.data());
+        setData(docs);
+        setLoading(false);
+      });
+    }
+  }, []);
 
-  const fetchedData = async () => {
-    const response = await fetch("https://fakestoreapi.com/products");
-    console.log(response);
-    const jsonData = await response.json();
-    console.log(jsonData);
-  setData(jsonData);
-}
+  const filteredProducts =
+    category == "all" ? data : data.filter((p) => p.category == category);
 
-const filteredProducts = data.filter((p) => p.category == category);
-
-  return (
-    <div className="itemListContainer"> 
-      
+  return loading ? (
+    <span className="loader"></span>
+  ) : (
+    <div className="itemListContainer">
       <ItemList data={filteredProducts} />
-
     </div>
+  );
+};
 
-  )
-}
-
-export default ItemListContainer
+export default ItemListContainer;

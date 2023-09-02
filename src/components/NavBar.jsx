@@ -9,61 +9,52 @@ const NavBar = () => {
   return (
     <div id="navbar">
       <Link to={"/home"}>
-        <img src={logo} alt="logo image" className="logo heartbeat"></img>
+        <img src={logo} alt="logo img" className="logo heartbeat"></img>
       </Link>
 
-          <Menu>
-            <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-              {" "}
-              Productos{" "}
-            </MenuButton>
-            <MenuList>
-              <MenuItem>
-                <Link to={`/category/${"men's clothing"}`}>Mens Clothing</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to={`/category/${"women's clothing"}`}>Women's Clothing</Link>
-              </MenuItem>
-              <MenuItem>
-              <Link to={`/category/${"jewelery"}`}>Jewelry</Link></MenuItem>
-              <MenuItem>
-              <Link to={`/category/${"electronics"}`}>Electronics</Link></MenuItem>
-            </MenuList>
-          </Menu>
+      <Menu>
+        <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+          {" "}
+          Productos{" "}
+        </MenuButton>
+        <MenuList>
+          <MenuItem>
+            <Link to={`/category/${"all"}`}>Todos los Productos</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to={`/category/${"accesories"}`}>Accesorios</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to={`/category/${"snacks"}`}>Snacks</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to={`/category/${"cleansing"}`}>Limpieza</Link>
+          </MenuItem>
+        </MenuList>
+      </Menu>
       <ul className="navbar-ul">
-        {/* <li>
-          <a href="#" data-hover="Inicio">
-            Inicio
-          </a>
-        </li> */}
-        <li>
-        </li>
-        <li>
-          <a href="#" data-hover="Galería">
-            Galería
-          </a>
-        </li>
-        <li>
-          <a href="#" data-hover="Servicios">
-            Servicios
-          </a>
-        </li>
+        <Link to={"/services"}>
+          <li>
+            <a href="#" data-hover="Servicios">
+              Servicios
+            </a>
+          </li>
+        </Link>
         <Link to={"/contact"}>
-        <li>
-          <a href="#" data-hover="Contacto">
-            Contacto
-          </a>
-        </li>
+          <li>
+            <a href="#" data-hover="Contacto">
+              Contacto
+            </a>
+          </li>
         </Link>
         <Link to={"/about"}>
-        <li>
-          <a href="#" data-hover="Acerca de Nosotros">
-            Acerca de Nosotros
-          </a>
-        </li>
+          <li>
+            <a href="#" data-hover="Acerca de Nosotros">
+              Acerca de Nosotros
+            </a>
+          </li>
         </Link>
       </ul>
-
       <CartWidget />
     </div>
   );
@@ -71,16 +62,4 @@ const NavBar = () => {
 
 export default NavBar;
 {
-  /* <Menu>
-  <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-    Actions
-  </MenuButton>
-  <MenuList>
-    <MenuItem>Download</MenuItem>
-    <MenuItem>Create a Copy</MenuItem>
-    <MenuItem>Mark as Draft</MenuItem>
-    <MenuItem>Delete</MenuItem>
-    <MenuItem>Attend a Workshop</MenuItem>
-  </MenuList>
-</Menu> */
 }

@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
 @import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
 @keyframes heartbeat {
   from {
@@ -28,11 +29,11 @@
 * {
   margin: 0;
   padding: 0;
-  /* background-color: #1d5b79; */
 }
 
 #root {
   display: flex;
+  background-color: #e6fbb0;
   /* grid:
     "header header header" auto
     "leftSide body rightSide" 1fr
@@ -45,20 +46,30 @@
   width: 100%;
 }
 
+h1 {
+  font-size: 60px;
+  font-family: "Pangolin", cursive;
+}
+
+h2 {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+/* Navbar */
 #navbar {
-  z-index: 3;
+  z-index: 1;
   position: sticky;
-  top: 0; 
+  top: 0;
   font-family: "Pangolin", cursive;
   /* grid-area: header; */
   display: flex;
   width: 100% !important;
   align-items: center;
-  justify-content:space-between;
-  background-color: white;
-  border-bottom: #468b97 solid 1px;
+  justify-content: space-between;
+  background-color: #e6fbb0;
+  border-bottom: #9dab3d solid 1px;
   opacity: 0.97;
-
 }
 
 .navbar-ul {
@@ -72,7 +83,6 @@
 
 .navbar-ul * {
   box-sizing: border-box;
-  /* -webkit-transition: all 0.35s ease; */
   transition: all 0.35s ease;
   display: flex;
   justify-content: center;
@@ -96,18 +106,16 @@
 .navbar-ul a:before,
 .navbar-ul a:after {
   position: absolute;
-  /* -webkit-transition: all 0.35s ease; */
   transition: all 0.35s ease;
 }
-.navbar-ul a:before  {
+.navbar-ul a:before {
   top: 100%;
   display: block;
   height: 3px;
   width: 100%;
   content: "";
-  /* background-color: #c0392b; */
 }
-.navbar-ul a:after  {
+.navbar-ul a:after {
   padding: 0.3em 0;
   position: absolute;
   top: 100%;
@@ -117,20 +125,8 @@
   white-space: nowrap;
 }
 .navbar-ul li:hover a,
-.navbar-ul .current a  {
+.navbar-ul .current a {
   transform: translateY(-100%);
-}
-
-/* body {
-  background-color: #1d5b79;
-} */
-
-.cart {
-  display: flex;
-  max-width: 40px;
-  top: 0;
-  margin-right: 60px;
-  margin-left: -60px;
 }
 
 .heartbeat:hover {
@@ -144,9 +140,25 @@
   max-width: 100px;
 }
 
+/* Cart  */
+.cart {
+  display: flex;
+  max-width: 40px;
+  top: 0;
+  margin-right: 60px;
+  margin-left: -60px;
+}
 .cartWidget {
   display: flex;
   align-items: center;
+}
+
+.cart-item-image {
+  max-width: 150px;
+  max-height: auto;
+}
+.cart-items {
+  font-family: "Pangolin", cursive;
 }
 
 #cart-items-number {
@@ -161,13 +173,75 @@
   padding: 1px 13px 8px 12px;
   border-radius: 10% 30% 50% 70%;
 }
+/* Home  */
+.home-slide {
+  margin-top: 0;
+}
 
+.home-h2-div {
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  font-family: "Pangolin", cursive;
+  background-color: #ffffff;
+  text-align: center;
+  color: rgba(0, 21, 80);
+}
+
+.home-h2 {
+  padding: 15px;
+  border-radius: 3px;
+  font-size: 20px;
+  font-family: "Pangolin", cursive;
+  text-align: center;
+}
+
+.arrow-catalog {
+  display: flex;
+  font-family: "Pangolin", cursive;
+  text-align: center;
+}
+
+#arrow-picture {
+  padding-top: 0;
+  margin-left: 380px;
+  max-width: 100px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  padding-bottom: 15px;
+}
+
+#home-h3 {
+  font-size: 13px;
+}
+
+.fab {
+  max-width: 30px;
+  justify-content: space-around;
+}
+
+.brands-div {
+  display: flex;
+  justify-content: space-around;
+  padding: 35px 35px 100px 35px;
+}
+
+.brands-img {
+  max-width: auto;
+  max-height: 50px;
+}
+
+#reino-img {
+  max-height: 50px;
+  max-width: auto;
+  filter: invert(1);
+}
+
+/* ItemListContainer  */
 .itemListContainer {
-  color: #f39000;
   font-family: "Pangolin", cursive;
   width: 100%;
-  padding: 20px;
-  /* background-color: #1d5b79; */
   display: grid;
   padding-left: 100px;
   grid-template-rows: repeat(3, 1fr);
@@ -175,40 +249,305 @@
   gap: 20px;
 }
 
+.item-card-div {
+  padding-top: 40px;
+}
 
 .counter-div {
-  padding: 0 30px 0 30px;
-display: flex;
-flex-direction:row;
-justify-content: center;
-align-self: center;
-align-items: center;
-border:#468b97 solid 2px;
-border-radius: 8px;
-width: 25%;
-color: black;
-margin: 0 15px 0 0;
+  font-size:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #468b97 solid 2px;
+  border-radius: 8px;
+  width: 35%;
+  color: black;
+  .counter-h2 {
+    align-items: center;
+    font-size: 20px;
+  }
 }
 
 .counter-button {
   display: flex;
-  border:#1d5b79 solid 1px;
-  border-radius:  5px;
-  /* background-color: #1d5b79; */
-  padding: 2px 10px 2px 10px;
+  border: #1d5b79 solid 1px;
+  border-radius: 5px;
+  padding: 2px 12px 2px 12px;
   margin: 4px 10px 4px 10px;
   font-family: "Pangolin", cursive;
 }
 
 .counter-button:hover {
-background-color: #F1FAFF;
+  background-color: #f1faff;
 }
 #chakraButtonCart {
-  border:#468b97 solid 2px;
+  border: #468b97 solid 2px;
   border-radius: 8px;
 }
 
 #detailImg {
   width: 50%;
   height: 50%;
+}
+
+/* Footer */
+
+#footer-div {
+  border-top: #9dab3d solid 1px;
+  width: 100%;
+  font-family: "Pangolin", cursive;
+  text-transform: uppercase;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ul-footer {
+  list-style: none;
+}
+.footer {
+  background-color: #e6fbb0;
+  padding: 70px 0;
+  text-transform: uppercase;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: rgba(0, 21, 80);
+  text-transform: uppercase;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: rgba(0, 21, 80);
+  opacity: 0.57;
+  display: block;
+  /* transition: all 0.3s ease; */
+}
+.footer-col ul li a:hover {
+  color: rgba(0, 21, 80);
+  opacity: 1;
+  padding-left: 8px;
+}
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover {
+  animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+/* Services  */
+
+.services-container {
+  font-family: "Pangolin", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 0px 100px 0px;
+}
+
+.services-title {
+  margin: 50px;
+}
+
+.h3-col {
+  font-size: 30px;
+}
+
+.services-li {
+  font-size: 20px;
+}
+
+#grooming,
+#grooming1 {
+  max-width: auto;
+  max-height: 500px;
+  border-radius: 100px;
+}
+
+.services-col1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.services-col2 {
+  margin: 40px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  max-width: fit-content;
+}
+
+.services-text1 {
+  padding: 60px;
+}
+.services-text2 {
+  padding: 60px;
+}
+
+/* Loader */
+.loader {
+  position: fixed;
+  top: 40px;
+  width: 58px;
+  height: 58px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-bottom-color: #ff3d00;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modal */
+
+.cart-item {
+  display: flex;
+  padding-bottom: 20px;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.cart-item-image {
+  max-width: 60px;
+  max-height: auto;
+}
+
+#cart-total {
+  display: flex;
+  font-family: "Pangolin", cursive;
+  padding: 25px;
+}
+
+#cart-drawer-h1 {
+  font-family: "Pangolin", cursive;
+}
+
+.cart-item-h1 {
+  font-family: "Pangolin", cursive;
+  font-size: 25px;
+}
+.cart-item-h2 {
+  font-family: "Pangolin", cursive;
+}
+
+#drawer {
+  font-family: "Pangolin", cursive;
+}
+
+/* itemDetail Card  */
+.css-jv498s {
+  font-family: "Pangolin", cursive;
+  left: 25%;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  .css-11jlpvc {
+    margin-left: 25%;
+    max-width: 344px;
+    max-height: auto;
+  }
+  .css-1a7q9t8 {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+  }
+}
+
+/* Contact form  */
+.contact-main-div {
+  padding: 0px 0px 100px 0px;
+  width: 50%;
+  font-family: "Pangolin", cursive;
+  background-color: #e6fbb0;
+  .contact-h1 {
+    font-size: 60px;
+  }
+  .contact-h2 {
+    font-size: 20px;
+    padding-bottom: 30px;
+  }
+}
+
+.css-1kxonj9 {
+  border: solid #1d5b79 2px;
+  background-color: #f1faff;
+  padding: 35px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* About */
+
+.about {
+  text-align: center;
+}
+.about-container {
+  padding: 60px 60px 100px 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: justify;
+}
+
+.about-h2 {
+  font-size: 20px;
+  font-family: "Pangolin", cursive;
+  padding-right: 50px;
+}
+
+.google-maps {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border: solid #1d5b79 3px;
+  border-radius: 10%;
 }
