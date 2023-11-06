@@ -16,7 +16,7 @@
 
 ###
 
-<p align="left">✨ Codeando desde Febrero de 2022<br>📚 Actualmente estoy aprendiendo ReactJS, PHP y SQL.<br>🎯 Goals: Desenvolverme profesionalmente como desarrollador FullStack.<br>🎲 Fun fact: Antes de dedicarme a esto, me dedicaba a la música. Soy pianista y cantante!</p>
+<p align="left">✨ Codeando desde Febrero de 2022<br>📚 Actualmente estoy aprendiendo Redux JS, TypeScript y GraphSQL.<br>🎯 Goals: Desenvolverme profesionalmente como desarrollador FullStack.<br>🎲 Fun fact: Antes de dedicarme a esto, me dedicaba a la música. Soy pianista y cantante!</p>
 
 ###
 
